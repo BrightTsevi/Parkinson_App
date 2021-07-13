@@ -10,7 +10,12 @@ using Xamarin.Forms.Xaml;
 using Accord;
 using System.Numerics;
 using SkiaSharp;
-
+using MathNet.Numerics;
+using IronPython.Runtime;
+using IronPython.Compiler;
+using Mono.Posix;
+using IronPython.Hosting;
+using System.IO;
 
 namespace Parkinson_App
 {
@@ -86,8 +91,6 @@ namespace Parkinson_App
                 source_y.Add(new Microcharts.ChartEntry(p)
                 {
                     Label = p.ToString(),
-                    ValueLabel = "",
-                    Color = SKColor.Parse("#FF1943")
                 });
             }
             List<Microcharts.ChartEntry> source_z = new List<Microcharts.ChartEntry>();
@@ -96,8 +99,6 @@ namespace Parkinson_App
                 source_z.Add(new Microcharts.ChartEntry(p)
                 {
                     Label = p.ToString(),
-                    ValueLabel = "",
-                    Color = SKColor.Parse("#00BFFF")
                 });
             }
 
@@ -107,5 +108,41 @@ namespace Parkinson_App
 
         }
 
+        private void fft_button_Clicked(object sender, EventArgs e)
+        {
+            /*     List<Complex> complex = new List<Complex>();
+                 MathNet.Numerics.Complex32[] some = new MathNet.Numerics.Complex32[x_vals.Count];
+                 for (int i=0; i < x_vals.Count; i++) {
+                     complex.Add(new Complex( x_vals[i], 0));
+                     some[i] = new MathNet.Numerics.Complex32(x_vals[i], 0);
+                     Console.WriteLine(some[i].ToString());
+                 }
+
+                 MathNet.Numerics.IntegralTransforms.Fourier.
+                     Forward(some, MathNet.Numerics.IntegralTransforms.FourierOptions.Matlab);
+                 fft_label.Text = complex[4].ToString();
+
+                 List<Microcharts.ChartEntry> source_fft = new List<Microcharts.ChartEntry>();
+                 for (int i = 0; i< some.Length; i++)
+                 {
+                     source_fft.Add(new Microcharts.ChartEntry(some[i].Real)
+                     {
+                         Label = some[i].Magnitude.ToString(),
+                         ValueLabel = some[i].Imaginary.ToString()
+                     });
+                 }
+
+                 LineChart_fft.Chart = new LineChart() { Entries = source_fft }; */
+            var engine = Python.CreateEngine();
+            var source = engine.CreateScriptSourceFromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FFT.py"));
+            var scope = engine.CreateScope();
+            source.Execute(scope);
+            var classFFT = scope.GetVariable("FFT");
+            var FFTInstance = engine.Operations.CreateInstance(classFFT);
+            Console.WriteLine("From Iron Python");
+            Console.WriteLine("FFT Plot is", FFTInstance.generate_sine_wave(2, 150, 5));
+
+
+        }
     }
 }
