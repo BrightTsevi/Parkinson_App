@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="Parkinson_App.Tremor_Page">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="X:" x:Name="x_acc" FontSize="20"/>
+            <Label Text="Y:" x:Name="y_acc" FontSize="20"/>
+            <Label Text="Z:" x:Name="z_acc" FontSize="20"/>
+            <Button Text="Start Test" BackgroundColor="LightSeaGreen" Clicked="Start_Clicked" />
+            <Button Text="Stop Test" BackgroundColor="Red" Clicked="Stop_Clicked" />
+
+            <ScrollView>
+                <StackLayout>    
+                    <microcharts:ChartView BackgroundColor="#11E1EB" x:Name="LineChart_X"  MinimumHeightRequest="400" HeightRequest="400"/>
+                    <microcharts:ChartView BackgroundColor="#11E1EB" x:Name="LineChart_Y"  MinimumHeightRequest="400" HeightRequest="400"/>
+                    <microcharts:ChartView BackgroundColor="#11E1EB" x:Name="LineChart_Z"  MinimumHeightRequest="400" HeightRequest="400"/>
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
