@@ -1,0 +1,3 @@
+# Parkinson_App
+
+This app is to help in early diagnosis and detection of Parkinson's disease...
