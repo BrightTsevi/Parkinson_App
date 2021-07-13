@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parkinson_App.MainPage"
+             BackgroundImageSource="" BackgroundColor="#1D2BD8" Opacity="0.7" Title="P-son's"
+             >
+
+    <StackLayout>
+        <Frame BackgroundColor="#A2B3C3" Padding="24" CornerRadius="10" >
+            <Label Text="Welcome to the Parkinson's detection APP" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+            <Label Text="Below are a couple of testing options ...." HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+
+        <Button Text="Tremor Test" BorderColor="#64E224" CornerRadius="10" Clicked="Button_Clicked"/>
+        <Button Text="Questionnaire" BorderColor="#64E224" CornerRadius="10"/>
+    </StackLayout>
+
+</ContentPage>
