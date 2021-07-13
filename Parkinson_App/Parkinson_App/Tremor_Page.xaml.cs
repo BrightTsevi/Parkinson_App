@@ -86,8 +86,6 @@ namespace Parkinson_App
                 source_y.Add(new Microcharts.ChartEntry(p)
                 {
                     Label = p.ToString(),
-                    ValueLabel = "",
-                    Color = SKColor.Parse("#FF1943")
                 });
             }
             List<Microcharts.ChartEntry> source_z = new List<Microcharts.ChartEntry>();
@@ -96,8 +94,6 @@ namespace Parkinson_App
                 source_z.Add(new Microcharts.ChartEntry(p)
                 {
                     Label = p.ToString(),
-                    ValueLabel = "",
-                    Color = SKColor.Parse("#00BFFF")
                 });
             }
 
