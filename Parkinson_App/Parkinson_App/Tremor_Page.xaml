@@ -10,11 +10,19 @@
             <Button Text="Start Test" BackgroundColor="LightSeaGreen" Clicked="Start_Clicked" />
             <Button Text="Stop Test" BackgroundColor="Red" Clicked="Stop_Clicked" />
 
+            <Label Text="FFT Trials" x:Name="fft_label"/>
+            <Button Text="FFT Compute" x:Name="fft_button" Clicked="fft_button_Clicked"/>
             <ScrollView>
-                <StackLayout>    
+                <StackLayout>
+                    <Label Text="X-Axis"/>
                     <microcharts:ChartView BackgroundColor="#11E1EB" x:Name="LineChart_X"  MinimumHeightRequest="400" HeightRequest="400"/>
+                    <Label Text="Y-Axis" />
                     <microcharts:ChartView BackgroundColor="#11E1EB" x:Name="LineChart_Y"  MinimumHeightRequest="400" HeightRequest="400"/>
+                    <Label Text="Z-Axis"/>
                     <microcharts:ChartView BackgroundColor="#11E1EB" x:Name="LineChart_Z"  MinimumHeightRequest="400" HeightRequest="400"/>
+                    <Label Text="FFT"/>
+                    <microcharts:ChartView BackgroundColor="#EB11DE" x:Name="LineChart_fft"  MinimumHeightRequest="400" HeightRequest="400"/>
+
                 </StackLayout>
             </ScrollView>
 
